@@ -50,7 +50,7 @@ SPEC 是「做什么」的唯一事实来源；本文件是「怎么做」的硬
 | 门禁二 | {{✅/⬜}} | PLAN 未确认前：禁止写白名单外的任何文件、禁止装依赖 |
 
 - 白名单外文件一律禁止，包括 `.json`、`.yaml`、`.toml`、`.sh`、`Makefile` 及任何语言源文件
-- 禁止一切改动系统或全局环境的命令（`pip install`、`npm install`、`nvm use`、`apt install` 等）
+- 禁止一切改动系统或全局环境的命令 —— 清单见 `docs/DEPS.md` §3
 - **放行时必须明说**：「SPEC 与 PLAN 均已确认，现在开始第 N 步：X」
 - 状态记录在 `docs/KICKOFF-STATUS.md`；SPEC 的确认记录表是最终事实来源
 
