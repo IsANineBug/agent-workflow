@@ -1,4 +1,4 @@
-# PLAN — project-kickoff skill 实施计划
+# PLAN — agent-project-workflow skill 实施计划
 
 ## 0. 元信息
 
@@ -30,7 +30,7 @@ SPEC §9.1 要求「用户可写位置，不可写时静默降级」，但没定
 
 ```
 ① <skill 目录>/observations.jsonl        ← 首选，记录跟着 skill 走
-② ~/.project-kickoff/observations.jsonl  ← skill 目录只读时退回用户主目录
+② ~/.agent-project-workflow/observations.jsonl  ← skill 目录只读时退回用户主目录
 ③ 都不可写 → 静默跳过，结尾一句话说明
 ```
 
@@ -59,8 +59,8 @@ SPEC §9.1 要求「用户可写位置，不可写时静默降级」，但没定
 
 ### S01 · 建目录骨架
 
-- **做**：创建 `project-kickoff/`、`project-kickoff/assets/`、`project-kickoff/assets/docs/`、`project-kickoff/references/`
-- **完成后可见**：`find project-kickoff -type d` 输出 4 个目录路径
+- **做**：创建 `agent-project-workflow/`、`agent-project-workflow/assets/`、`agent-project-workflow/assets/docs/`、`agent-project-workflow/references/`
+- **完成后可见**：`find agent-project-workflow -type d` 输出 4 个目录路径
 
 ### S02 · 写 `assets/SPEC.md.tmpl`
 
@@ -100,7 +100,7 @@ SPEC §9.1 要求「用户可写位置，不可写时静默降级」，但没定
 
 ### S08 · SKILL.md frontmatter + 骨架
 
-- **做**：写 frontmatter（`name: project-kickoff`、中英双语 `description`）与章节骨架
+- **做**：写 frontmatter（`name: agent-project-workflow`、中英双语 `description`）与章节骨架
 - **完成后可见**：description 同时含中文触发词（「我想做个 X」「帮我开个新项目」）、英文触发词（"start a new project"）、**项目级产物**限定，以及不该触发的反例（加模块 / 重构 / 修 bug / 做个函数）
 
 ### S09 · §模式判定与前置检查
@@ -193,7 +193,7 @@ SPEC §9.1 要求「用户可写位置，不可写时静默降级」，但没定
 ### S24 · 出 `.skill` 包
 
 - **做**：用 `skill-creator` 的 `package_skill.py` 打包
-- **完成后可见**：`dist/project-kickoff.skill` 生成，并报出文件大小
+- **完成后可见**：`dist/agent-project-workflow.skill` 生成，并报出文件大小
 
 ### S25 · 打 tag `v1.0.0` 并推送
 
@@ -202,13 +202,13 @@ SPEC §9.1 要求「用户可写位置，不可写时静默降级」，但没定
 
 ### S26 · 安装到 skill 目录
 
-- **做**：把 `project-kickoff/` 装到 `~/.dsh/skills/project-kickoff/`
-- **完成后可见**：`ls ~/.dsh/skills/project-kickoff/` 能看到 `SKILL.md`、`assets/`、`references/`
+- **做**：把 `agent-project-workflow/` 装到 `~/.dsh/skills/agent-project-workflow/`
+- **完成后可见**：`ls ~/.dsh/skills/agent-project-workflow/` 能看到 `SKILL.md`、`assets/`、`references/`
 
 ### S27 · 验证安装生效
 
 - **做**：确认 skill 被平台识别
-- **完成后可见**：新会话的可用技能列表里出现 `project-kickoff`，description 显示中英双语
+- **完成后可见**：新会话的可用技能列表里出现 `agent-project-workflow`，description 显示中英双语
 
 ---
 
