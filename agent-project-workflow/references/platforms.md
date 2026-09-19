@@ -16,7 +16,7 @@
 | skill 目录 | `~/.dsh/skills/` |
 | 安装路径 | `~/.dsh/skills/agent-project-workflow/` |
 | 验证时间 | 2026-09-19 |
-| 验证方式 | ① 该目录下已有其他 skill 正常加载（`context-efficient-docs`、`skill-creator`）② 本 skill 安装后出现在可用技能列表（见下表末行） |
+| 验证方式 | ① 该目录下已有其他 skill 正常加载（`context-efficient-docs`、`skill-creator`）② 本 skill 安装到 `~/.dsh/skills/` 后，运行时技能目录自动刷新，`agent-project-workflow` 出现在可用技能列表且 description 完整 |
 
 ### 已验证的能力
 
@@ -27,7 +27,7 @@
 | `wc` / `grep` | ✅ 有 | 体积与行号检查用命令实测，不估算 |
 | `context-efficient-docs` skill | ✅ 已安装 | 可调用做文档体检 |
 | 子 agent / 并行执行 | ✅ 有 | evals 可并行跑 |
-| 本 skill 安装后可被识别 | ⬜ 待验证 | 由 S27 填写 |
+| 本 skill 安装后可被识别 | ✅ 已验证 | 复制到 `~/.dsh/skills/agent-project-workflow/` 后，运行时技能目录刷新，该 skill 出现在可用技能列表；安装副本与源码 `diff -r` 完全一致 |
 
 ---
 
