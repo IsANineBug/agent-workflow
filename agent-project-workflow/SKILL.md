@@ -163,3 +163,39 @@ SPEC 与 PLAN 都确认、**已开始实现之后**，用户改需求 → **一�
 - **不删除**已生成的文档（删除是破坏性操作，交给用户）
 - 在 `docs/KICKOFF-STATUS.md` 记一行「已放弃」与时间
 - 用一句话说明当前停在哪儿、已产出了什么
+
+---
+
+## 8. 产出物与生成顺序
+
+```
+项目/
+├── docs/
+│   ├── KICKOFF-STATUS.md   ← 采访开始时创建（最早）
+│   ├── GIT.md  DEPS.md  SECURITY.md  BUILD.md  QUALITY.md
+├── SPEC.md                 ← 确认记录在此
+├── PLAN.md
+├── AGENTS.md               ← ≤ 350 行
+└── INDEX.md                ← ≤ 300 行
+```
+
+**顺序**：`KICKOFF-STATUS → SPEC → PLAN → AGENTS → INDEX → docs/ 其余五个`
+
+为什么是这个顺序：需求 → 计划 → 规矩。AGENTS.md 的约束要能引用 SPEC 的具体条目，倒过来写会产生悬空引用。
+
+### 8.1 模板用法
+
+`assets/` 下有 9 个模板。**用它们，不要从零写** —— 否则每次产出结构都不一样，用户下次找东西要重新探一遍。
+
+| 模板 | 产出 |
+|---|---|
+| `SPEC.md.tmpl` | 项目 SPEC（门禁与白名单已内联） |
+| `PLAN.md.tmpl` | 项目 PLAN |
+| `AGENTS.md.tmpl` | 常驻规则 |
+| `INDEX.md.tmpl` | 入口索引 |
+| `KICKOFF-STATUS.md.tmpl` | 流程状态 |
+| `docs/*.md.tmpl` × 5 | 五份规则文件 |
+
+模板里的 `{{占位符}}` 全部替换；`<!-- 填写指引 -->` 注释在生成正式文件时删除。
+
+五个 docs 文件**固定全部生成**，即使内容为「待填」也不缺文件 —— 结构固定，agent 才知道该往哪写。空壳部分在 PLAN 里安排填写时机。
