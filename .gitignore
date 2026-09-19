@@ -1,21 +1,21 @@
-# 操作系统
+# 白名单式：仓库只跟踪 skill 本体与 README，其余全部忽略
+/*
+!/.gitignore
+!/README.md
+!/agent-project-workflow/
+
+# 兜底（白名单已覆盖，留着防手滑解开白名单时泄漏）
+dist/
+*.skill
+
+# 操作系统 / 编辑器（白名单外本来就被忽略，防御性保留）
 .DS_Store
 Thumbs.db
-
-# 编辑器
 *.swp
 *.swo
 *~
 .idea/
 .vscode/
-
-# 打包产物（.skill 包）
-dist/
-*.skill
-
-# Python（若日后加脚本）
 __pycache__/
 *.pyc
-
-# Node（若日后加工具链）
 node_modules/
